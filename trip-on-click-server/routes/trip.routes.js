@@ -1,6 +1,5 @@
-const UserService = require('../services/user.service');
 
-
+const TripService = require('../services/trip.service');
 const express = require('express');
 const router = express.Router();
 
@@ -19,11 +18,11 @@ const router = express.Router();
     // };
 
     //TEST
-    /* /users/ */
+    /* /trips/ */
      router.get("/",  (req, res, next) => {
     try {
         res.status(200).json({
-            Message : "users"
+            Message : "all trips"
         });
       } catch (e) {
         console.log(e);

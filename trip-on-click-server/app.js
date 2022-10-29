@@ -1,13 +1,24 @@
-// import cors from "cors";
-
+// import fs from "fs"
+// const fs = require('fs')
+const cors = require('cors');
+const morgan = require('morgan');
 const express = require('express');
 const app = express();
 
+const tripsRoutes = require("./routes/trip.routes");
+const attractionsRoutes = require("./routes/attraction.routes");
+const usersRoutes = require("./routes/user.routes");
 
-// app.use(cors())
+
+require('dotenv').config();
+app.use(morgan("dev"));
+app.use(cors());
+app.use(express.json());//req.body.message
+app.use(express.urlencoded({extended: false}));
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authoriztion");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     if (req.method === "OPTIONS") {
         res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
         return res.status(200).json({});
@@ -15,11 +26,14 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        message: 'Hello World 4'
-    })
-});
+
+
+
+//Routes
+app.use('/trips', tripsRoutes);
+app.use('/users', usersRoutes);
+app.use('/attractions', attractionsRoutes);
+
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');

@@ -1,5 +1,4 @@
-const UserService = require('../services/user.service');
-
+const AttractionService = require('../services/attraction.service');
 
 const express = require('express');
 const router = express.Router();
@@ -19,11 +18,11 @@ const router = express.Router();
     // };
 
     //TEST
-    /* /users/ */
+    /* /attractions/ */
      router.get("/",  (req, res, next) => {
     try {
         res.status(200).json({
-            Message : "users"
+            Message : "all attractions"
         });
       } catch (e) {
         console.log(e);

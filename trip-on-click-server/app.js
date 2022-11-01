@@ -10,6 +10,18 @@ const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
 
+mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/?retryWrites=true&w=majority',{
+   
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', ()=>{
+    console.log('mongoDB connected!');
+});
+
+
+
 require('dotenv').config();
 app.use(morgan("dev"));
 app.use(cors());

@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
 const app = express();
+const mongoose = require ('mongoose');
 
 const tripsRoutes = require("./routes/trip.routes");
 const attractionsRoutes = require("./routes/attraction.routes");

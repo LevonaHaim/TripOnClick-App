@@ -3,6 +3,7 @@
 const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 
 const tripsRoutes = require("./routes/trip.routes");

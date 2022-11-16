@@ -11,10 +11,9 @@ const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
 
-mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/?retryWrites=true&w=majority',{
-   
+mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority',{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
 mongoose.connection.on('connected', ()=>{
@@ -49,6 +48,7 @@ app.use('/attractions', attractionsRoutes);
 
 
 app.use((req, res, next) => {
+    console.log("hii");
     const error = new Error('Not Found');
     error.status = 404;
     next(error);

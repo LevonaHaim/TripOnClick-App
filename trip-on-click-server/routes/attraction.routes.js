@@ -21,9 +21,16 @@ const router = express.Router();
 /* /attractions/ */
 router.get("/", async (request, res) => {
   try {
+<<<<<<< HEAD
     const attractions = await AttractionService.getAllAttractions();
     console.log(attractions)
     res.status(200).send(attractions);
+=======
+    res.json(await AttractionService.getAllAttractions());
+    // const attractions = await AttractionService.getAllAttractions();
+    // console.log(attractions)
+    // res.status(200).send(attractions);
+>>>>>>> e402fbfe44161c12c92e03467b98824926c8df45
   } catch (e) {
     console.log(e);
   }

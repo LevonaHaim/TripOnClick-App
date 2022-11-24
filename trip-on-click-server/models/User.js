@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
+<<<<<<< HEAD
 
 const userSchema = new mongoose.Schema({
 
+=======
+const userSchema = new mongoose.Schema({
+
+>>>>>>> e402fbfe44161c12c92e03467b98824926c8df45
   _id: mongoose.Schema.Types.ObjectId,
 
   username: {

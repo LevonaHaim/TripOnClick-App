@@ -20,6 +20,10 @@ const attractionSchema = mongoose.Schema({
     price: [Number],
     description: String,
     url: String
+<<<<<<< HEAD
+=======
+    
+>>>>>>> e402fbfe44161c12c92e03467b98824926c8df45
 });
 
 module.exports = mongoose.model('Attraction', attractionSchema)

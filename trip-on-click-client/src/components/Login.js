@@ -42,10 +42,11 @@ export default function Login() {
 
     return (
         <>
+            <h2>Login!!!!!!</h2>
             <Form onSubmit={(e) => handleSubmit(e)}>
                 {/* email */}
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Email address </Form.Label>
                     <Form.Control
                         type="email"
                         name="email"

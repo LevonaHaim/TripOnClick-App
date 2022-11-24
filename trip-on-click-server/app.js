@@ -3,17 +3,16 @@
 const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
-const mongoose = require ('mongoose')
-const tripsRoutes = require("./routes/trip.routes");
-const attractionsRoutes = require("./routes/attraction.routes");
+//const tripsRoutes = require("./routes/trip.routes");
+//const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
 
-mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/?retryWrites=true&w=majority',{
-   
+mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority',{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
 mongoose.connection.on('connected', ()=>{
@@ -42,12 +41,13 @@ app.use(express.urlencoded({extended: false}));
 
 
 //Routes
-app.use('/trips', tripsRoutes);
-app.use('/users', usersRoutes);
-app.use('/attractions', attractionsRoutes);
+//app.use('/trips', tripsRoutes);
+//app.use('/users', usersRoutes);
+//app.use('/attractions', attractionsRoutes);
 
 
 app.use((req, res, next) => {
+    console.log("hii");
     const error = new Error('Not Found');
     error.status = 404;
     next(error);

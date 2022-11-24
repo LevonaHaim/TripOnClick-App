@@ -2,10 +2,15 @@ const mongoose = require('mongoose');
 
 const tripSchema = mongoose.Schema({
 id: String,
-startDate: String,
-finalDate: String,
-userId: String,
-attractionsId: [String]
+startDate: Date,
+finalDate: Date,
+
+tripAttractions: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "TripAttraction"
+    }
+  ]
 
 
 });

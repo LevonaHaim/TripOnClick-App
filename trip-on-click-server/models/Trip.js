@@ -1,18 +1,9 @@
 const mongoose = require('mongoose');
 
 const tripSchema = mongoose.Schema({
-id: String,
-startDate: Date,
-finalDate: Date,
-
-tripAttractions: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "TripAttraction"
-    }
-  ]
-
-
+    _id: mongoose.Schema.Types.ObjectId,
+    startDate: Date,
+    finalDate: Date,
 });
 
-module.exports = mongoose.model('Trip', tripSchema )
+module.exports = mongoose.model('Trip', tripSchema)

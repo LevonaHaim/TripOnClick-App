@@ -3,6 +3,7 @@
 const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
+const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
 const app = express();
 
@@ -11,13 +12,12 @@ const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
 
-mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/?retryWrites=true&w=majority',{
-   
+mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
-mongoose.connection.on('connected', ()=>{
+mongoose.connection.on('connected', () => {
     console.log('mongoDB connected!');
 });
 
@@ -27,7 +27,7 @@ require('dotenv').config();
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());//req.body.message
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
@@ -49,7 +49,8 @@ app.use('/attractions', attractionsRoutes);
 
 
 app.use((req, res, next) => {
-    const error = new Error('Not Found');
+    console.log("hii");
+    const error = new Error('Not Found router');
     error.status = 404;
     next(error);
 })

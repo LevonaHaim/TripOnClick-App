@@ -1,6 +1,8 @@
 
 const TripService = require('../services/trip.service');
 const express = require('express');
+const Trip = require('../models/Trip');
+
 const router = express.Router();
 
 
@@ -29,6 +31,16 @@ const router = express.Router();
         next(e);
       }
     });
+
+    router.get('/:id', async (req, res) => {
+      const trip = await Trip.findById(req.params.id).populate('attractions.attraction')
+      res.send(trip)
+  })
+
+    router.get('/:id', async (req, res) => {
+      const trip = await Trip.findById(req.params.id).populate('attractions.attraction')
+      res.send(trip)
+  })
 
 
 module.exports = router;

@@ -23,7 +23,6 @@ var rawDocuments = [
                 _id : "637564d0e1009f9a613cec93"
             }
         },
-        
     ]
    }
 ];

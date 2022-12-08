@@ -2,6 +2,8 @@ const userService = require("../services/user.service");
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../models/User');
+const { checkUser } = require('../AuthMiddlewares');
+
 const router = express.Router();
 
 
@@ -9,13 +11,8 @@ const router = express.Router();
 //TEST
 /* /users/ */
 
+
 router.get("/", async (request, response) => {
-  // try {
-  //   console.log("levv");
-  //   res.json(await userService.getAllUsers());
-  // } catch (error) {
-  //   response.status(500).send(error);
-  // }
   try {
     const users = await userService.getAllUsers();
     response.status(200).send(users);
@@ -37,7 +34,8 @@ router.get("/:id", async (request, response) => {
 router.post("/register",  (request, response) => {
   try {
      userService.register(request, response);
-  } catch (error) {
+  
+    } catch (error) {
     response.status(500).send(error);
   }
 });
@@ -50,14 +48,16 @@ router.post("/login", async (request, response) => {
   }
 });
 
-router.get("/delete/:id", async (request, response) => {
+router.delete("/delete/:id", async (request, response) => {
   try {
+    console.log("deleteR");
     await userService.deleteUser(request, response);
   }
    catch (error) {
     response.status(500).send(error);
   }
 });
+
 
 router.patch("/:id", async (request, response) => {
 

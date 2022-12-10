@@ -1,0 +1,9 @@
+const getAllUsers = () => {
+
+}
+
+
+const getTripById = () => {
+
+    
+}

@@ -3,17 +3,35 @@
 const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
+<<<<<<< HEAD
 const jwt = require("jsonwebtoken");
+=======
+const session = require('express-session')
+const cookieParser = require("cookie-parser");
+
+const jwt = require("jsonwebtoken");
+const MongoDBSession = require('connect-mongodb-session')(session);
+>>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 const mongoose = require('mongoose');
 const app = express();
+const { checkUser } = require('./AuthMiddlewares');
 
 
 const tripsRoutes = require("./routes/trip.routes");
 const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
+<<<<<<< HEAD
 
 mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority', {
+=======
+const mongoURI = 'mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority';
+// const NODE_ENV = development;
+const SESS_NAME = 'sid';
+const SESS_SECRET = 'secret!session';
+const SESS_LIFETIME = 1000 * 60 * 60 * 2;
+mongoose.connect(mongoURI, {
+>>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -22,13 +40,35 @@ mongoose.connection.on('connected', () => {
     console.log('mongoDB connected!');
 });
 
+// const store = new MongoDBSession({
+//     uri: mongoURI,
+//     collection: 'sessions',
+//     ttl: parseInt(SESS_LIFETIME) / 1000
+// })
+
+// app.use(
+//     session({
+//         secret: 'key that will sign cookie',
+//         resave: false,
+//         saveUninitialized: false,
+//         store: store,
+//         cookie: {
+//             sameSite: true,
+//             secure: NODE_ENV === 'production',
+//             maxAge: parseInt(SESS_LIFETIME)
+//         }
+//     }));
 
 
 require('dotenv').config();
 app.use(morgan("dev"));
+<<<<<<< HEAD
 app.use(cors());
 app.use(express.json());//req.body.message
 app.use(express.urlencoded({ extended: false }));
+=======
+// app.use(cors({}));
+>>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
@@ -39,7 +79,27 @@ app.use(express.urlencoded({ extended: false }));
 //     }
 //     next();
 // });
+const corsOptions ={
+    origin:['http://localhost:3000'], 
+    methods: ["GET", "POST"],
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+// app.use(
+//     cors({
+//       origin: ["http://localhost:8080"],
+//       methods: ["GET", "POST"],
+//       credentials: true,
+//     })
+//   );
+app.use(cookieParser());
+app.use(express.json());//req.body.message
+app.use(express.urlencoded({ extended: false }));
 
+
+
+app.post("/", checkUser);
 
 
 
@@ -49,6 +109,7 @@ app.use('/users', usersRoutes);
 app.use('/attractions', attractionsRoutes);
 
 
+<<<<<<< HEAD
 app.use((req, res, next) => {
     console.log("hii");
     const error = new Error('Not Found router');
@@ -64,5 +125,22 @@ app.use((error, req, res, next) => {
         }
     })
 })
+=======
+// app.use((req, res, next) => {
+//     console.log("hii");
+//     const error = new Error('Not Found router');
+//     error.status = 404;
+//     next(error);
+// })
+
+// app.use((error, req, res, next) => {
+//     res.status(error.status || 500);
+//     res.json({
+//         error: {
+//             message: error.message
+//         }
+//     })
+// })
+>>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 
 module.exports = app;

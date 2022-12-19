@@ -13,7 +13,11 @@ const tripSchema = mongoose.Schema({
             time : {
                 type : Date,
                 default: Date.now,
+<<<<<<< HEAD
             }
+=======
+            },
+>>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
         }
 
     ]

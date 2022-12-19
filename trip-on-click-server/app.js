@@ -6,7 +6,7 @@ const express = require('express');
 const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose');
 const app = express();
-const mongoose = require ('mongoose');
+
 
 const tripsRoutes = require("./routes/trip.routes");
 const attractionsRoutes = require("./routes/attraction.routes");

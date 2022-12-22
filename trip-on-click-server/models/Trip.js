@@ -10,9 +10,16 @@ const tripSchema = mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Attraction"
             },
+
             start: Date,
             timeDistance:Number,
             distanceFromPrev:Number
+
+=======
+            time : {
+                type : Date,
+                default: Date.now,
+            },
 
         }
 

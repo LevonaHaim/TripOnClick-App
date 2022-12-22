@@ -6,14 +6,14 @@ const tripSchema = mongoose.Schema({
     finalDate: Date,
     attractions: [
         {
-            attraction : {
+            attractionDetails : {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Attraction"
             },
-            time : {
-                type : Date,
-                default: Date.now,
-            }
+            start: Date,
+            timeDistance:Number,
+            distanceFromPrev:Number
+
         }
 
     ]

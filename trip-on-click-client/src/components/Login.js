@@ -71,7 +71,7 @@ function Login() {
 
 
     return (
-        <div>
+        <div className="logandreg">
             <Form onSubmit={(e) => handleSubmit(e)}>
                 <MainContainer >
                     <WelcomeText>התחברות</WelcomeText>

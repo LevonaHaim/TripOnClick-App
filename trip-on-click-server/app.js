@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 const app = express();
 const { checkUser } = require('./AuthMiddlewares');
 
+
 const tripsRoutes = require("./routes/trip.routes");
 const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");

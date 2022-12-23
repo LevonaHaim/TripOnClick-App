@@ -60,7 +60,7 @@ export default function Register() {
 
     }
     return (
-        <div>
+        <div className="logandreg">
             <Form onSubmit={(e) => handleSubmit(e)}>
                 <MainContainer >
                     <WelcomeText>הרשמה</WelcomeText>

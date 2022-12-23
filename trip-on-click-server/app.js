@@ -3,15 +3,11 @@
 const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
-<<<<<<< HEAD
-const jwt = require("jsonwebtoken");
-=======
 const session = require('express-session')
 const cookieParser = require("cookie-parser");
 
 const jwt = require("jsonwebtoken");
 const MongoDBSession = require('connect-mongodb-session')(session);
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 const mongoose = require('mongoose');
 const app = express();
 const { checkUser } = require('./AuthMiddlewares');
@@ -21,17 +17,12 @@ const tripsRoutes = require("./routes/trip.routes");
 const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
-<<<<<<< HEAD
-
-mongoose.connect('mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority', {
-=======
 const mongoURI = 'mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority';
 // const NODE_ENV = development;
 const SESS_NAME = 'sid';
 const SESS_SECRET = 'secret!session';
 const SESS_LIFETIME = 1000 * 60 * 60 * 2;
 mongoose.connect(mongoURI, {
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -62,13 +53,7 @@ mongoose.connection.on('connected', () => {
 
 require('dotenv').config();
 app.use(morgan("dev"));
-<<<<<<< HEAD
-app.use(cors());
-app.use(express.json());//req.body.message
-app.use(express.urlencoded({ extended: false }));
-=======
 // app.use(cors({}));
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "*");
@@ -109,23 +94,6 @@ app.use('/users', usersRoutes);
 app.use('/attractions', attractionsRoutes);
 
 
-<<<<<<< HEAD
-app.use((req, res, next) => {
-    console.log("hii");
-    const error = new Error('Not Found router');
-    error.status = 404;
-    next(error);
-})
-
-app.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    res.json({
-        error: {
-            message: error.message
-        }
-    })
-})
-=======
 // app.use((req, res, next) => {
 //     console.log("hii");
 //     const error = new Error('Not Found router');
@@ -141,6 +109,5 @@ app.use((error, req, res, next) => {
 //         }
 //     })
 // })
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 
 module.exports = app;

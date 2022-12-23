@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body {
+.logandreg {
   background-image: url("https://anywhereworks.com/core/web/img/aw_bg_mission_hero@2x.webp");
   background-size: cover;
   display: flex;

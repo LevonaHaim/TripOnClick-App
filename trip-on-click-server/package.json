@@ -12,11 +12,6 @@
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.3.16",
     "bcrypt": "^5.1.0",
-<<<<<<< HEAD
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-=======
     "connect-mongo": "^4.6.0",
     "connect-mongodb-session": "^3.1.1",
     "cookie-parser": "^1.4.6",
@@ -24,7 +19,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "joi": "^17.7.0",
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.0",
     "morgan": "^1.10.0",

@@ -10,17 +10,11 @@
     "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
-<<<<<<< HEAD
-    "react-dom": "^18.2.0",
-    "react-hook-use-state": "^1.1.0",
-    "react-router-dom": "^6.4.4",
-=======
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-hook-use-state": "^1.1.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.3",
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",

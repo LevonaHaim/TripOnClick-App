@@ -2,11 +2,8 @@ const userService = require("../services/user.service");
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../models/User');
-<<<<<<< HEAD
-=======
 const { checkUser } = require('../AuthMiddlewares');
 
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 const router = express.Router();
 
 
@@ -14,18 +11,8 @@ const router = express.Router();
 //TEST
 /* /users/ */
 
-<<<<<<< HEAD
-router.get("/", async (request, response) => {
-  // try {
-  //   console.log("levv");
-  //   res.json(await userService.getAllUsers());
-  // } catch (error) {
-  //   response.status(500).send(error);
-  // }
-=======
 
 router.get("/", async (request, response) => {
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
   try {
     const users = await userService.getAllUsers();
     response.status(200).send(users);
@@ -47,12 +34,8 @@ router.get("/:id", async (request, response) => {
 router.post("/register",  (request, response) => {
   try {
      userService.register(request, response);
-<<<<<<< HEAD
-  } catch (error) {
-=======
   
     } catch (error) {
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
     response.status(500).send(error);
   }
 });
@@ -65,14 +48,9 @@ router.post("/login", async (request, response) => {
   }
 });
 
-<<<<<<< HEAD
-router.get("/delete/:id", async (request, response) => {
-  try {
-=======
 router.delete("/delete/:id", async (request, response) => {
   try {
     console.log("deleteR");
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
     await userService.deleteUser(request, response);
   }
    catch (error) {
@@ -80,10 +58,6 @@ router.delete("/delete/:id", async (request, response) => {
   }
 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c68e7ecf08ada7bf1394f7f253d0e7f4b7cb545e
 router.patch("/:id", async (request, response) => {
 
   try {

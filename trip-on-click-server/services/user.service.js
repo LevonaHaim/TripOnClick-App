@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Trip = require('../models/Trip');
 const mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -111,8 +112,31 @@ const updateUser = async (request, response) => {
         response.status(500).send(error);
     }
 }
+const getTripByUserId = async(req,res) => {
+  
+   var Trip = Trip.app.models.Trip;
+   var allTrips=Trip.app.module.Trip;
+   User.findById((req.params.id).select('trips').then(allTrips),function(err,allTrips){
+        if (err) {
+            console.log(err);
+            console.log("doesnt work");   
+        }
+        else {
+            console.log(allTrips);
+            console.log("works");
+            res.status(200).json(allTrips);
+        }
+   });
+//     User.findById(req.params.id, function (err,Trip) {
+        
+//    });
+
+};
 
 
+
+module.exports = { getAllUsers, register, getUserById, deleteUser, updateUser, login ,getTripByUserId};
+=======
 const handleErrors = (err) => {
     let errors = { email: "", password: "" };
 
@@ -148,3 +172,4 @@ const handleErrors = (err) => {
 };
 
 module.exports = { getAllUsers, register, getUserById, deleteUser, updateUser, login };
+

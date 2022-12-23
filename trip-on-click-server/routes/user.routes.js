@@ -21,6 +21,32 @@ router.get("/", async (request, response) => {
   }
 });
 
+// router.get("/get/:id", async (request, response) => {
+//   try {
+//     await userService.getTripByUserId(request,response);
+//     console.log('workkkk');
+  
+//   } catch (e) {
+//     response.status(500).send(e);
+//   }
+// });
+router.get("/:id/trips",async (request, response) => {
+  try {
+    const user = await User.findById(request.params.id).populate('trips');
+    console.log(user);
+    // const trip = await Trip.findById('6379740a5a920fe00875cd20').populate('attractions.attraction')
+    // user.trips.push(trip);
+    // await user.save();
+    response.send(user.trips);
+
+  }
+
+    // response.send(user.trips);
+  catch (e) {
+  response.status(500).send(e);
+}
+});
+
 
 router.get("/:id", async (request, response) => {
   try {
@@ -29,6 +55,7 @@ router.get("/:id", async (request, response) => {
     response.status(500).send(e);
   }
 });
+
 
 
 router.post("/register",  (request, response) => {
@@ -58,10 +85,12 @@ router.delete("/delete/:id", async (request, response) => {
   }
 });
 
+
 router.patch("/:id", async (request, response) => {
 
   try {
     await userService.updateUser(request, response);
+    console.log("works");
   }
    catch (error) {
     response.status(500).send(error);

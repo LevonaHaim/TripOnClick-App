@@ -13,9 +13,9 @@ const tripSchema = mongoose.Schema({
 
             start: Date,
             timeDistance:Number,
-            distanceFromPrev:Number
+            distanceFromPrev:Number,
 
-=======
+
             time : {
                 type : Date,
                 default: Date.now,

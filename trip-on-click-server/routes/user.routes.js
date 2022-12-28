@@ -86,9 +86,6 @@ router.delete("/delete/:id", async (request, response) => {
 });
 
 
-router.post("/:id", async (request, response) => {
-
-
 router.patch("/:id", async (request, response) => {
 
   try {
@@ -129,10 +126,5 @@ router.patch("/:id", async (request, response) => {
 //   }
 // });
 
-
-
-
-
- });
 
 module.exports = router;

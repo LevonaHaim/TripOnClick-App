@@ -136,7 +136,7 @@ const getTripByUserId = async(req,res) => {
 
 
 module.exports = { getAllUsers, register, getUserById, deleteUser, updateUser, login ,getTripByUserId};
-=======
+
 const handleErrors = (err) => {
     let errors = { email: "", password: "" };
 

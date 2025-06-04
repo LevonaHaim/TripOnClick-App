@@ -17,7 +17,6 @@ const tripsRoutes = require("./routes/trip.routes");
 const attractionsRoutes = require("./routes/attraction.routes");
 const usersRoutes = require("./routes/user.routes");
 
-const mongoURI = 'mongodb+srv://meytal106:5YLA9Q5yXnz7R5Z5@triponclickdb.kaks7p2.mongodb.net/TOCDB?retryWrites=true&w=majority';
 // const NODE_ENV = development;
 const SESS_NAME = 'sid';
 const SESS_SECRET = 'secret!session';
